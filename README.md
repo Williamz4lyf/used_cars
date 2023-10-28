@@ -71,10 +71,49 @@ df = df.rename(columns=new_columns)
 ```
 
 * Mapping values to convert German words to English
+
+```python
+df.assign(
+    date_crawled=lambda x: pd.to_datetime(x.date_crawled),
+    date_created=lambda x: pd.to_datetime(x.date_created),
+    last_seen=lambda x: pd.to_datetime(x.last_seen),
+    postal_code=lambda x: x.postal_code.astype(str),
+    seller=lambda x: x.seller.map({'privat':'private', 'gewerblich':'commercial'}).fillna(x.seller),
+    name=lambda x: x.name.str.replace('_', ' '),
+    brand=lambda x: x.brand.str.replace('_', ' ').map({'sonstige autos':'other cars'}).fillna(x.brand),
+    offer_type=lambda x: x.offer_type.map({'Angebot':'offer', 'Gesuch':'request'}).fillna(x.offer_type),
+    price_usd=lambda x: x.price_usd.str.replace('$', '', regex=False).str.replace(',','', regex=False).astype(float),
+    odometer_km=lambda x: x.odometer_km.str.replace('km', '', regex=False).str.replace(',','', regex=False).astype(float),
+    gearbox=lambda x: x.gearbox.map({'manuell':'manual', 'automatik':'automatic'}).fillna(x.gearbox),
+    vehicle_type=lambda x: x.vehicle_type.map({'kleinwagen':'small car', 'kombi':'station wagon', 'cabrio':'convertible', 'andere':'others'}).fillna(x.vehicle_type),
+    fuel_type=lambda x: x.fuel_type.map({'benzin':'petrol', 'elektro':'electric', 'andere':'others'}).fillna(x.fuel_type),
+    unrepaired_damage=lambda x: x.unrepaired_damage.map({'nein':'no', 'ja':'yes'}).fillna(x.unrepaired_damage),
+    model=lambda x: x.model.map({'andere':'others'}).fillna(x.model),
+)
+```
+
 * Converting data types to appropriate formats
+
 * Dropping features with not enough variation in values.
+
+```python
+df = df.drop(columns=['num_of_pictures', 'seller', 'offer_type'])
+```
+
 * Replacing missing values in categorical features with the mode
+
+```python
+df.loc[df.vehicle_type.isna(), 'vehicle_type'] = df.vehicle_type.mode().iloc[0]
+df.loc[df.gearbox.isna(), 'gearbox'] = df.gearbox.mode().iloc[0]
+df.loc[df.fuel_type.isna(), 'fuel_type'] = df.fuel_type.mode().iloc[0]
+df.loc[df.unrepaired_damage.isna(), 'unrepaired_damage'] = df.unrepaired_damage.mode().iloc[0]
+```
+
 * Correcting registration year for absurd values
+
+```python
+df.loc[df.registration_year < 1950, 'registration_year'] = 1950
+```
 
 
 ### Exploratory & Statistical Analysis
