@@ -127,6 +127,7 @@ The categorical columns were distributed as follows:
 ![Car Price over Time](https://github.com/Williamz4lyf/used_cars/blob/main/images/car_price.png)
 
 The average price for the earlier months may reflect fewer listings in that period, many of which were high value.
+
 ![Car Price Over Time (No Outliers)](https://github.com/Williamz4lyf/used_cars/blob/main/images/car_price_no_outliers.png)
 
 When grouped by month, used car listing price has no real seasonal trends:
