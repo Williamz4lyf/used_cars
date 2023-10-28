@@ -121,19 +121,19 @@ The numeric columns were distributed as follows:
 ![Numeric Distributions](https://github.com/Williamz4lyf/used_cars/blob/main/images/dist_num.png)
 
 The categorical columns were distributed as follows:
-![Categorical Distributions]([LINK](https://github.com/Williamz4lyf/used_cars/blob/main/images/cat_dist.png))
+![Categorical Distributions](https://github.com/Williamz4lyf/used_cars/blob/main/images/cat_dist.png)
 
 **Listing Price of Used Cars Over Time**
-[Car Price over Time](https://github.com/Williamz4lyf/used_cars/blob/main/images/car_price.png)
+![Car Price over Time](https://github.com/Williamz4lyf/used_cars/blob/main/images/car_price.png)
 
 The average price for the earlier months may reflect fewer listings in that period, many of which were high value.
-[Car Price Over Time (No Outliers)](https://github.com/Williamz4lyf/used_cars/blob/main/images/car_price_no_outliers.png)
+![Car Price Over Time (No Outliers)](https://github.com/Williamz4lyf/used_cars/blob/main/images/car_price_no_outliers.png)
 
 When grouped by month, used car listing price has no real seasonal trends:
-[Car Price By Month - Seasonal Trends](https://github.com/Williamz4lyf/used_cars/blob/main/images/car_price_month.png)
+![Car Price By Month - Seasonal Trends](https://github.com/Williamz4lyf/used_cars/blob/main/images/car_price_month.png)
 
 Nearly all listings are made in the month of March:
-[Listings per Month](https://github.com/Williamz4lyf/used_cars/blob/main/images/listings_month.png)
+![Listings per Month](https://github.com/Williamz4lyf/used_cars/blob/main/images/listings_month.png)
 
 **How Long Do Listings stay onsite?**
 
@@ -146,7 +146,7 @@ df.assign(
     listing_duration=lambda x: x.listing_duration.dt.total_seconds() / (60 * 60 * 24)
 ```
 Most listings remain on the site for under 50 days. However, our histogram has a long right tail.
-[Period Listings Remain on Site](https://github.com/Williamz4lyf/used_cars/blob/main/images/listings_length.png)
+![Period Listings Remain on Site](https://github.com/Williamz4lyf/used_cars/blob/main/images/listings_length.png)
 
 **What's the average cost of cars & average mileage of cars with long listing periods?**
 * The average car price for listings longer than 50 days is 9,107.80
@@ -158,30 +158,30 @@ Neither mileage nor price seems to be a cause for listings staying longer on the
 **Listing duration by Brands & Vehicle Type**
 
 There is no clear relationship between Brands or Vehicle Types and listing duration:
-[Relationship between Brands & Listing Duration](https://github.com/Williamz4lyf/used_cars/blob/main/images/brand_listings_length.png)
+![Relationship between Brands & Listing Duration](https://github.com/Williamz4lyf/used_cars/blob/main/images/brand_listings_length.png)
 
-[Relationship between Vehicle Types & Listing Duration](https://github.com/Williamz4lyf/used_cars/blob/main/images/vehicle_listings_length.png)
+![Relationship between Vehicle Types & Listing Duration](https://github.com/Williamz4lyf/used_cars/blob/main/images/vehicle_listings_length.png)
 
 **Exploring Price by Brand**
-[Brands & Price](https://github.com/Williamz4lyf/used_cars/blob/main/images/brands_price.png)
+![Brands & Price](https://github.com/Williamz4lyf/used_cars/blob/main/images/brands_price.png)
 
 **Average Mileage for Top 10 Brands**
-[Brands & Mileage](https://github.com/Williamz4lyf/used_cars/blob/main/images/brands_mileage.png)
+![Brands & Mileage](https://github.com/Williamz4lyf/used_cars/blob/main/images/brands_mileage.png)
 
 **Name Column Review**
 
 Mostly, the listings column contains text with car brand names and the most popular listed car is the Mercedes Benz.
-[Name Feature Wordcloud](https://github.com/Williamz4lyf/used_cars/blob/main/images/name_wordcloud.png)
+![Name Feature Wordcloud](https://github.com/Williamz4lyf/used_cars/blob/main/images/name_wordcloud.png)
 
 **Most Common Brand & Model Combinations**
-[Brand & Model Combos](https://github.com/Williamz4lyf/used_cars/blob/main/images/brand_model_combo.png)
+![Brand & Model Combos](https://github.com/Williamz4lyf/used_cars/blob/main/images/brand_model_combo.png)
 
 **Most Common Brand & Gearbox Combinations**
-[Brand & Gearbox Combos](https://github.com/Williamz4lyf/used_cars/blob/main/images/brand_gearbox_combo.png)
+![Brand & Gearbox Combos](https://github.com/Williamz4lyf/used_cars/blob/main/images/brand_gearbox_combo.png)
 
 **Patterns in Odometer Columns**
 First, we split the odometer feature into groups, and used aggregation to determine if average prices follow any patterns based on the mileage. A pattern was evident.
-[Odometer & Price](https://github.com/Williamz4lyf/used_cars/blob/main/images/avg_price_odometer.png)
+![Odometer & Price](https://github.com/Williamz4lyf/used_cars/blob/main/images/avg_price_odometer.png)
 
 We tested the pattern using boxplot, correlation and regression and found that the pattern had no statistical significance.
 
@@ -192,7 +192,7 @@ We tested the pattern using boxplot, correlation and regression and found that t
 * Fuel Type
 * Gear Box
 
-[Categorical Features & Average Price](https://github.com/Williamz4lyf/used_cars/blob/main/images/cat_cols_avg_price.png)
+![Categorical Features & Average Price](https://github.com/Williamz4lyf/used_cars/blob/main/images/cat_cols_avg_price.png)
 
 When tested for statistical significance, the chart fails.
 
