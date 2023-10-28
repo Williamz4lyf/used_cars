@@ -48,6 +48,28 @@ import statsmodels.formula.api as smf
 
 Our data cleaning process involved teh following actions:
 * Renaming columns to snail case
+
+```python
+new_columns = {
+    'dateCrawled':'date_crawled',  
+    'offerType':'offer_type', 
+    'price':'price_usd',
+    'vehicleType':'vehicle_type', 
+    'yearOfRegistration':'registration_year', 
+    'powerPS':'power_ps', 
+    'odometer':'odometer_km',
+    'monthOfRegistration':'registration_month', 
+    'fuelType':'fuel_type', 
+    'notRepairedDamage':'unrepaired_damage', 
+    'dateCreated':'date_created', 
+    'nrOfPictures':'num_of_pictures', 
+    'postalCode':'postal_code', 
+    'lastSeen':'last_seen'
+}
+
+df = df.rename(columns=new_columns)
+```
+
 * Mapping values to convert German words to English
 * Converting data types to appropriate formats
 * Dropping features with not enough variation in values.
